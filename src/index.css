@@ -5,8 +5,11 @@
 
 @layer utilities{
     .box-shadow-yellow{
-        filter: drop-shadow(0 3px 5px rgb(222, 224, 54));
+        filter: drop-shadow(0 5px 3px #e7db2acc);
+        /* text-shadow: -2px 5px 5px #a70707;*/
+        /*color: rgb(153, 26, 26);*/
     }
+
 
     .title-shadow{
         text-shadow: -1px 2px 5px #6d6c6c;
