@@ -9,6 +9,8 @@ import LogoPage from '../../modules/admin/dashboard/Logo/LogoPage'
 import PoliticPage from '../../modules/admin/dashboard/Politic/PoliticPage'
 import TermPage from '../../modules/admin/dashboard/Term/TermPage'
 
+import AboutMe from '../../modules/admin/dashboard/about/AboutMe'
+import LayoutLanding from '../../shared/layout/LayoutLanding'
 
 const RouteApp = () => {
   return (
@@ -31,7 +33,16 @@ const RouteApp = () => {
           <Route path='logo' element={<LogoPage/>}/>
           <Route path='polity' element={<PoliticPage/>}/>
           <Route path='termin' element={<TermPage/>}/>
+          {/* <Route index element={<HomePage/>}/> */}
+          <Route path='home' element={<HomePage />}/>
+          <Route path='about' element={<AboutMe/>}/>
+          <Route path='contact' element={<h1>Contact</h1>}/>
         </Route>
+
+        <Route path='/' element={<LayoutLanding/>}>
+        </Route>
+        
+        
   
 
     </Routes>

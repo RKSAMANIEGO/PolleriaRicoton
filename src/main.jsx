@@ -3,15 +3,18 @@ import { createRoot } from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import ThemeProvider from './core/store/Theme/ThemeProvider.jsx'
+import { CartProvider } from './shared/components/cart/MockCartContext.jsx'
 import CustomModalProvider from './shared/hooks/modal/CustomModalProvider.jsx'
 
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ThemeProvider>
+      <CartProvider>
       <CustomModalProvider>
         <App />
       </CustomModalProvider>
+      </CartProvider>
     </ThemeProvider>
   </StrictMode>
 )
