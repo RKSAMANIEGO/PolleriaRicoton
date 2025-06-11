@@ -7,10 +7,19 @@ import {
   FileDoneOutlined,
   SafetyCertificateOutlined,
 } from '@ant-design/icons'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 const { Sider } = Layout
 
 const SidebarLeftLanding = ({ collapsed }) => {
+
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleMenuClick = (e) => {
+    navigate(e.key);
+  };
+
   return (
     <Sider collapsed={collapsed} width={200} theme="light" className="rounded-r-2xl shadow-xl">
       
@@ -22,10 +31,11 @@ const SidebarLeftLanding = ({ collapsed }) => {
 
       <Menu
         mode="inline"
-        defaultSelectedKeys={['1']}
+        defaultSelectedKeys={[location.pathname]}
+        onClick={handleMenuClick}
         items={[
         {
-          key: '1',
+          key: '/',
           icon: <HomeOutlined />,
           label: 'Menu',
         },
@@ -41,12 +51,12 @@ const SidebarLeftLanding = ({ collapsed }) => {
           label: <Divider></Divider>,
         },
         {
-          key: '4',
+          key: '/policy',
           icon: <SafetyCertificateOutlined />,
           label: 'Politicas',
         },
         {
-          key: '5',
+          key: '/term',
           icon: <FileDoneOutlined />,
           label: 'Terminos',
         },
