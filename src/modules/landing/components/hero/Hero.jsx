@@ -1,10 +1,8 @@
 import './hero.css';
-
-// NOTA: Reemplaza estas rutas con la ubicación real de tus imágenes
-const logoPath = '/images/logo.png';
+import logo from '../../../../assets/logoPolleria.png'
 const chickenPath = '/images/roasted-chicken.png';
 
-export default function Hero() {
+const Hero = () => {
   const categoriesData = [
     { icon: '🗂️', name: 'Todo', products: 18 },
     { icon: '🍗', name: 'Pollos', products: 18 },
@@ -15,7 +13,7 @@ export default function Hero() {
 
   return (
     <div className="page-container">
-      <header className="header">
+      {/* <header className="header">
         <h1 className="welcome-text">Bienvenido, Luis Angel</h1>
         <div className="header-controls">
           <span className="header-icon">☰</span>
@@ -25,12 +23,12 @@ export default function Hero() {
           </div>
           <span className="header-icon">🛒</span>
         </div>
-      </header>
+      </header> */}
 
       <div className="banner-container">
         <main className="hero-banner">
           <div className="hero-left">
-            <img src={logoPath} alt="Logo del restaurante" className="logo" />
+            <img src={logo} alt="Logo del restaurante" className="logo" />
             <p className="hero-welcome">Bienvenido</p>
             <h2 className="hero-title">
               ¡DONDE EL SABOR SE HACE <span className="highlight">BRASA!</span>
@@ -79,3 +77,5 @@ export default function Hero() {
     </div>
   );
 }
+
+export default Hero;

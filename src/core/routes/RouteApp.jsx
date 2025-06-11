@@ -1,16 +1,18 @@
 import { Route, Routes } from 'react-router-dom'
-import LoginPage from '../../modules/admin/auth/LoginPage'
 import LayoutAdmin from '../../shared/layout/LayoutAdmin'
-import HomePage from '../../modules/admin/dashboard/home/HomePage'
 import AboutMe from '../../modules/admin/dashboard/about/AboutMe'
 import LayoutLanding from '../../shared/layout/LayoutLanding'
+import HomePage from '../../modules/admin/dashboard/home/HomePage'
+import LandingPage from '../../modules/landing/pages/LandingPage'
+import PolicyPage from '../../modules/landing/pages/PolicyPage'
+import TermPage from '../../modules/landing/pages/TermPage'
 
 const RouteApp = () => {
   return (
     <Routes>
-      <Route path="/landing" element={<LandingPage />} />
+      {/* <Route path="/landing" element={<LandingPage />} />
       <Route path="/hero" element={<Hero />} />
-      <Route path="/login" element={<LoginPage />} />
+      <Route path="/login" element={<LoginPage />} /> */}
 
  
         <Route path='panel' element={<LayoutAdmin/>}>
@@ -20,7 +22,11 @@ const RouteApp = () => {
           <Route path='contact' element={<h1>Contact</h1>}/>
         </Route>
 
-        <Route path='/' element={<LayoutLanding/>}>
+        <Route element={<LayoutLanding/>}>
+
+          <Route path='/' element={<LandingPage/>}/>
+          <Route path='/policy' element={<PolicyPage/>}/>
+          <Route path='/term' element={<TermPage/>}/>
         </Route>
         
         

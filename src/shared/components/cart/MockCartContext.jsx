@@ -1,6 +1,6 @@
 
 import React, { createContext, useContext, useState, useMemo } from 'react';
-
+import pollo from '../../../assets/pollo01.png'
 const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
@@ -12,7 +12,7 @@ export const CartProvider = ({ children }) => {
       name: 'Menú del Día',
       price: 30.0,
       discount: 10,
-      image: [{ url: 'https://via.placeholder.com/80?text=Menú' }],
+      image: [{ url: pollo }],
       quantity: 1,
     },
     {
@@ -20,7 +20,7 @@ export const CartProvider = ({ children }) => {
       name: 'Bebida Refrescante',
       price: 5.0,
       discount: 0,
-      image: [{ url: 'https://via.placeholder.com/80?text=Bebida' }],
+      image: [{ url: pollo}],
       quantity: 2,
     },
   ];
