@@ -14,9 +14,10 @@ import LayoutLanding from '../../shared/layout/LayoutLanding'
 
 const RouteApp = () => {
   return (
-
     <Routes>
-        <Route path='login' element={<LoginPage/>}/>
+      <Route path="/landing" element={<LandingPage />} />
+      <Route path="/hero" element={<Hero />} />
+      <Route path="/login" element={<LoginPage />} />
 
         <Route path='panel' element={<LayoutAdmin/>}>
           <Route index element={<HomePage/>}/>
@@ -46,8 +47,7 @@ const RouteApp = () => {
   
 
     </Routes>
- 
-  )
-}
+  );
+};
 
-export default RouteApp
+export default RouteApp;
