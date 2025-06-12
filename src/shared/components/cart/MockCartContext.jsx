@@ -9,7 +9,7 @@ export const CartProvider = ({ children }) => {
   const initialCartItems = [
     {
       id: '1',
-      name: 'Menú del Día',
+      name: '1/4 pollo con papas + ensalada + gaseosa de dos litros y papa al horno',
       price: 30.0,
       discount: 10,
       image: [{ url: pollo }],
@@ -23,9 +23,38 @@ export const CartProvider = ({ children }) => {
       image: [{ url: pollo}],
       quantity: 2,
     },
+    {
+      id: '2',
+      name: 'Bebida Refrescante',
+      price: 5.0,
+      discount: 0,
+      image: [{ url: pollo}],
+      quantity: 2,
+    },
+    {
+      id: '2',
+      name: 'Bebida Refrescante',
+      price: 5.0,
+      discount: 0,
+      image: [{ url: pollo}],
+      quantity: 2,
+    },
+    {
+      id: '2',
+      name: 'Bebida Refrescante',
+      price: 5.0,
+      discount: 0,
+      image: [{ url: pollo}],
+      quantity: 2,
+    },
   ];
   const [cartItems, setCartItems] = useState(initialCartItems);
 
+  // Abrir/cerrar sidebar
+  const openCart = () => setIsCartOpen(true);
+  const closeCart = () => setIsCartOpen(false);
+
+  // Calcular total bruto sin descuentos
   const subTotal = useMemo(() => {
     return cartItems.reduce((sum, item) => {
       return sum + item.price * item.quantity;
@@ -61,7 +90,8 @@ export const CartProvider = ({ children }) => {
 
   const value = {
     isCartOpen,
-    setIsCartOpen,
+    openCart,
+    closeCart,
     cartItems,
     getCartTotal,
     removeFromCart,

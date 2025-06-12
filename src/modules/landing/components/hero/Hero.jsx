@@ -1,5 +1,6 @@
 import './hero.css';
-import logo from '../../../../assets/logoPolleria.png'
+import logo from '../../../../assets/banner.png'
+import { InstagramOutlined, FacebookOutlined, TikTokOutlined } from '@ant-design/icons';
 const chickenPath = '/images/roasted-chicken.png';
 
 const Hero = () => {
@@ -27,19 +28,7 @@ const Hero = () => {
 
       <div className="banner-container">
         <main className="hero-banner">
-          <div className="hero-left">
             <img src={logo} alt="Logo del restaurante" className="logo" />
-            <p className="hero-welcome">Bienvenido</p>
-            <h2 className="hero-title">
-              ¡DONDE EL SABOR SE HACE <span className="highlight">BRASA!</span>
-            </h2>
-            <p className="hero-description">
-              Pollos jugosos, papas doradas y el toque peruano que acompaña.
-            </p>
-          </div>
-          <div className="hero-right">
-            <img src={chickenPath} alt="Pollo a la brasa" className="hero-image" />
-          </div>
         </main>
 
         {/* --- FOOTER DEL BANNER (REDISEÑADO) --- */}
@@ -55,10 +44,10 @@ const Hero = () => {
           </div>
           <div className="footer-right-red">
             <div className="social-icons">
-              <span className="social-icon">📞</span>
-              <span className="social-icon">💬</span>
-              <span className="social-icon">👍</span>
-              <span className="social-icon">📸</span>
+              <span className="social-icon"><InstagramOutlined/></span>
+              <span className="social-icon"><FacebookOutlined/></span>
+              <span className="social-icon"><TikTokOutlined/></span>
+              <span className="social-icon"><TikTokOutlined/></span>
             </div>
             <button className="call-btn">Llamar</button>
           </div>

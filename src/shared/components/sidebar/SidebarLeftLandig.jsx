@@ -8,13 +8,16 @@ import {
   SafetyCertificateOutlined,
 } from '@ant-design/icons'
 import { useLocation, useNavigate } from 'react-router-dom'
+import { useApp } from '../../../core/store/App/AppProvider'
 
 const { Sider } = Layout
 
-const SidebarLeftLanding = ({ collapsed }) => {
+const SidebarLeftLanding = ( ) => {
 
   const navigate = useNavigate();
   const location = useLocation();
+
+  const { collapsed } = useApp();
 
   const handleMenuClick = (e) => {
     navigate(e.key);
