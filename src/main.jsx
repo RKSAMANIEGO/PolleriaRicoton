@@ -9,12 +9,12 @@ import CustomModalProvider from './shared/hooks/modal/CustomModalProvider.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <ThemeProvider>
+    <AppProvider>
       <CartProvider>
       <CustomModalProvider>
         <App />
       </CustomModalProvider>
       </CartProvider>
-    </ThemeProvider>
+    </AppProvider>
   </StrictMode>
 )

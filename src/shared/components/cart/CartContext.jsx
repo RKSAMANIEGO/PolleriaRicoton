@@ -13,7 +13,7 @@ export const CartProvider = ({ children }) => {
 
   // Cargar carrito del localStorage al iniciar
   useEffect(() => {
-    const storedCart = localStorage.getItem('naviCart');
+    const storedCart = localStorage.getItem('cart');
     if (storedCart) {
       try {
         setCartItems(JSON.parse(storedCart));
@@ -26,7 +26,7 @@ export const CartProvider = ({ children }) => {
 
   // Guardar carrito en localStorage cuando se actualice
   useEffect(() => {
-    localStorage.setItem('naviCart', JSON.stringify(cartItems));
+    localStorage.setItem('cart', JSON.stringify(cartItems));
   }, [cartItems]);
 
   // Agregar un producto al carrito
