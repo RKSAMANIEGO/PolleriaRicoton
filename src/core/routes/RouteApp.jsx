@@ -40,7 +40,7 @@ const RouteApp = () => {
         <Route element={<LayoutLanding/>}>
 
           <Route path='/' element={<LandingPage/>}/>
-          <Route path='/product/detail' element={<ProductDetailsPage/>}/>
+          <Route path='/product/:id/detail' element={<ProductDetailsPage/>}/>
           {/* <Route path='/product/:id' element={<ProductDetailsPage/>}/> */}
           <Route path='/policy' element={<PolicyPage/>}/>
           <Route path='/term' element={<TermPage/>}/>

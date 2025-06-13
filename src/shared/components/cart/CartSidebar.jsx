@@ -22,7 +22,6 @@ const CartSidebar = () => {
     isCartOpen,
     closeCart,
     cartItems,
-    getCartTotal,
     removeFromCart,
     updateQuantity,
     clearCart
@@ -48,26 +47,26 @@ const CartSidebar = () => {
   const handleOrder = () => {
     // Construir mensaje
     const itemsMsg = cartItems.map(item =>
-      `• ${item.quantity}x ${item.name} - S/${(item.price * item.quantity).toFixed(2)}`
+      `✅ ${item.quantity}x ${item.name} de S/${item.price} = *${(item.price * item.quantity).toFixed(2)}*`
     ).join('\n');
-    const pagoTexto = `Método de pago: ${paymentMethod}`;
-    const nombreTexto = `Nombre: ${name}`;
-    const numeroTexto = `Número: ${number}`;
+    const pagoTexto = `*Pagare por:* ${paymentMethod}`;
+    const nombreTexto = `*Mi Nombre es:* ${name}`;
+    const numeroTexto = `*Mi Número:* ${number}`;
     let lugarTexto = '';
     if (isDelivery) {
-      lugarTexto = `Enviar a domicilio: Sí\nDirección: ${address}`;
+      lugarTexto = `*Enviar a domicilio:* Sí\n*Dirección:* ${address}`;
     } else {
-      lugarTexto = `Enviar a domicilio: No\nNº de mesa: ${tableNumber}`;
+      lugarTexto = `*Entregar en la mesa:* ${tableNumber}`;
     }
     const obsTexto = observations.trim()
-      ? `Observaciones: ${observations.trim()}`
-      : 'Observaciones: -';
+      && `*Observaciones:* ${observations.trim()}`;
+      
     const mensaje = 
-      `¡Hola! Me gustaría hacer el siguiente pedido:\n\n${itemsMsg}\n\n` +
+      `*¡Hola Polleria El Ricoton 👋!* quiero realizar el siguiente pedido:\n\n📝 *PEDIDO:*\n\n${itemsMsg}\n\n` +
       `*Sub Total: S/${subtotal.toFixed(2)}*\n` +
       (discount > 0 ? `*Descuento: -S/${discount.toFixed(2)}*\n` : '') +
       `*Total: S/${total.toFixed(2)}*\n\n` +
-      `${pagoTexto}\n${nombreTexto}\n${numeroTexto}\n${lugarTexto}\n${obsTexto}`;
+      `👤 *Datos:*\n\n${nombreTexto}\n\n${pagoTexto}\n\n${numeroTexto}\n\n${lugarTexto}\n\n${obsTexto}`;
     const encodedText = encodeURIComponent(mensaje);
     window.open(`https://wa.me/+51901009929?text=${encodedText}`, '_blank');
   };
