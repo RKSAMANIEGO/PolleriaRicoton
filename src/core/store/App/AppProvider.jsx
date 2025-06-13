@@ -4,22 +4,19 @@ import React, { createContext, useContext, useState } from 'react'
 const AppContext = createContext()
 
 export const AppProvider = ({ children }) => {
-  const [collapsed, setCollapsed] = useState(true)
-
+  const [collapsed, setCollapsed] = useState(false)
   const toggleSidebar = () => setCollapsed(prev => !prev)
 
-
   const values = {
-    toggleSidebar,
     collapsed,
+    toggleSidebar,
   }
 
   return (
-    <AppContext.Provider value={ values }>
+    <AppContext.Provider value={values}>
       {children}
     </AppContext.Provider>
   )
 }
 
-// Hook para usar más fácil
 export const useApp = () => useContext(AppContext)
