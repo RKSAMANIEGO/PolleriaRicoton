@@ -16,7 +16,7 @@ export default function Hero() {
   return (
     <div className="page-container">
       <header className="header">
-        <h1 className="welcome-text">Bienvenido, Luis Angel</h1>
+        <h1 className="welcome-text">Bienvenido</h1>
         <div className="header-controls">
           <span className="header-icon">☰</span>
           <div className="search-wrapper">

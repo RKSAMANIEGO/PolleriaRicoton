@@ -33,6 +33,11 @@
   padding: 0 40px;
   font-weight: bold;
   font-size: 1.1rem;
+  transition: background-color 0.3s;
+}
+
+.landing-menu-button:hover {
+  background-color: darkred !important;
 }
 
 .landing-footer {
@@ -44,10 +49,15 @@
 .landing-link {
   font-weight: bold;
   font-size: 1rem;
-  color: red;
+  color: red !important;
+  transition: color 0.3s;
 }
-/*responsivo*/
 
+.landing-link:hover {
+  color: darkred !important;
+}
+
+/* Responsivo */
 @media (max-width: 768px) {
   .landing-logo {
     width: 100px;
