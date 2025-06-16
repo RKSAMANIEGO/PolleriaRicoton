@@ -1,97 +1,24 @@
-import { Button, Typography, Layout, Space, Modal, Checkbox } from "antd";
-import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { Button, Layout, Typography } from "antd";
+import { useNavigate } from "react-router-dom";
 import logoPolleria from "../../../assets/logoPolleria.png";
 import "./Landing.css";
 
-const { Content, Footer } = Layout;
+const { Content } = Layout;
 const { Text } = Typography;
 
 const LandingPage = () => {
   const navigate = useNavigate();
+  const [selectedSection, setSelectedSection] = useState(null);
 
-  // Estados para visibilidad de modales
-  const [isPrivacyVisible, setPrivacyVisible] = useState(false);
-  const [isTermsVisible, setTermsVisible] = useState(false);
-
-  // Estados para checkbox de aceptación
-  const [acceptedPrivacy, setAcceptedPrivacy] = useState(false);
-  const [acceptedTerms, setAcceptedTerms] = useState(false);
-
-  // Mostrar modales
-  const showPrivacyModal = () => {
-    setPrivacyVisible(true);
-    setAcceptedPrivacy(false);
-  };
-
-  const showTermsModal = () => {
-    setTermsVisible(true);
-    setAcceptedTerms(false);
-  };
-
-  // Aceptar y cerrar los modales solo si se aceptan condiciones
-  const handlePrivacyAccept = () => {
-    if (acceptedPrivacy) setPrivacyVisible(false);
-  };
-
-  const handleTermsAccept = () => {
-    if (acceptedTerms) setTermsVisible(false);
-  };
-
-  return (
-    <Layout className="landing-layout">
-      <Content className="landing-content">
-        <img src={logoPolleria} alt="Logo" className="landing-logo" />
-
-        <Button
-          type="primary"
-          size="large"
-          shape="round"
-          className="landing-menu-button"
-          onClick={() => navigate("/login")}
-        >
-          Menú
-        </Button>
-      </Content>
-
-      <Footer className="landing-footer">
-        <Space direction="vertical" size={0}>
-          <Button type="link" className="landing-link" onClick={showPrivacyModal}>
-            Políticas de privacidad
-          </Button>
-          <Button type="link" className="landing-link" onClick={showTermsModal}>
-            Términos y condiciones
-          </Button>
-        </Space>
-      </Footer>
-
-      {/* Modal: Políticas de Privacidad */}
-      <Modal
-        title="Políticas de Privacidad de Carta Digital"
-        open={isPrivacyVisible}
-        onCancel={() => setPrivacyVisible(false)}
-        footer={[
-          <Checkbox
-            key="check-privacy"
-            onChange={(e) => setAcceptedPrivacy(e.target.checked)}
-            checked={acceptedPrivacy}
-            style={{ marginRight: "auto" }}
-          >
-            Acepto las políticas de privacidad
-          </Checkbox>,
-          <Button
-            key="accept-privacy"
-            type="primary"
-            onClick={handlePrivacyAccept}
-            disabled={!acceptedPrivacy}
-          >
-            Aceptar
-          </Button>,
-        ]}
-        width={700}
-      >
-        <div style={{ maxHeight: "60vh", overflowY: "auto", paddingRight: "1rem" }}>
-          <Text>
+  const renderContent = () => {
+    switch (selectedSection) {
+      case "privacy":
+        return (
+          <div className="landing-text">
+            
+               <b>Políticas de Privacidad de Carta Digital:</b><br /><br />
+              <Text>
             <b>Pollería El Ricoton</b><br /><br />
             <b>1. Recopilación de información personal:</b><br />
             Al utilizar nuestra carta, podremos recopilar información personal como nombre, dirección, número de teléfono, dirección de correo electrónico, entre otros.<br />
@@ -126,37 +53,14 @@ const LandingPage = () => {
             <b>Pollería El Ricoton</b><br />
             Al utilizar nuestra carta digital, usted acepta y consiente nuestras políticas de privacidad.
           </Text>
-        </div>
-      </Modal>
 
-      {/* Modal: Términos y Condiciones */}
-      <Modal
-        title="Términos y Condiciones de la Carta Digital"
-        open={isTermsVisible}
-        onCancel={() => setTermsVisible(false)}
-        footer={[
-          <Checkbox
-            key="check-terms"
-            onChange={(e) => setAcceptedTerms(e.target.checked)}
-            checked={acceptedTerms}
-            style={{ marginRight: "auto" }}
-          >
-            Acepto los términos y condiciones
-          </Checkbox>,
-          <Button
-            key="accept-terms"
-            type="primary"
-            onClick={handleTermsAccept}
-            disabled={!acceptedTerms}
-          >
-            Aceptar
-          </Button>,
-        ]}
-        width={700}
-      >
-        <div style={{ maxHeight: "60vh", overflowY: "auto", paddingRight: "1rem" }}>
-         <Text>
-  <b>Términos y condiciones de la carta digital</b><br /><br />
+          </div>
+        );
+      case "terms":
+        return (
+          <div className="landing-text">
+            <Text>
+  <b>Términos y condiciones de la carta digital:</b><br /><br />
 
   <b>Pollería El Ricoton</b><br /><br />
 
@@ -181,8 +85,51 @@ const LandingPage = () => {
   Al utilizar esta carta digital, el usuario acepta cumplir con estos términos y condiciones. Le recomendamos revisar periódicamente estos términos, ya que podrían actualizarse ocasionalmente.
 </Text>
 
-        </div>
-      </Modal>
+          </div>
+        );
+      default:
+        return (
+          <div className="landing-text">
+            <h1>Bienvenido a Pollería El Ricoton</h1>
+          </div>
+        );
+    }
+  };
+
+  return (
+    <Layout className="landing-layout-horizontal">
+
+      <div className="landing-sidebar">
+        <img src={logoPolleria} alt="Logo" className="landing-logo" />
+
+        
+        <Button
+          className="landing-sidebar-button menu-button"
+          onClick={() => navigate("/login")}
+        >
+          Menú
+        </Button>
+
+ 
+        <Button
+          className={`landing-sidebar-button ${selectedSection === "privacy" ? "active" : ""}`}
+          onClick={() => setSelectedSection("privacy")}
+        >
+          Políticas de privacidad
+        </Button>
+
+        <Button
+          className={`landing-sidebar-button ${selectedSection === "terms" ? "active" : ""}`}
+          onClick={() => setSelectedSection("terms")}
+        >
+          Términos y condiciones
+        </Button>
+      </div>
+
+      {/* Área de contenido */}
+      <Content className="landing-main-content">
+        {renderContent()}
+      </Content>
     </Layout>
   );
 };
