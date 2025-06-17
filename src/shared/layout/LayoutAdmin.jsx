@@ -8,7 +8,7 @@ const LayoutAdmin= () => {
   const {isDark} = useTheme();
 
   return (
-    <div className={`flex bg-[#e2e2e2] text-black h-[100dvh]`}>
+    <div className={`flex bg-[#f4eed9] text-black h-[100dvh]`}>
         <SidebarAdmin/>
         
         <div className='w-full'>
