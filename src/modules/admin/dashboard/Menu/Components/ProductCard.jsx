@@ -1,27 +1,52 @@
-import ButtonCard from "../../../../../shared/components/inputs/ButtonCard"
-import AnimationIn from '../../../../../shared/animations/AnimationIn'
-const ProductCard = ({productos,onEdit,onDelete}) => {
+import React from 'react';
+import { Card, Button, Tooltip } from 'antd';
+import { EditOutlined, DeleteOutlined } from '@ant-design/icons';
+import AnimationIn from '../../../../../shared/animations/AnimationIn';
+
+const ProductCard = ({ product, onEdit, onDelete }) => {
   return (
-    <>
-    {productos.map(prod => (
-    <AnimationIn direction='bottom'>      
-      <div key={prod.id} className="group flex flex-col justify-between h-[320px] w-[250px] rounded-t-2xl transition-transform duration-500 hover:-translate-y-2" style={{boxShadow:"5px 5px 2px  #f1ecd7"}}>
-        
-        <div className="h-[50%] overflow-hidden bg-[#f1f1f1] flex justify-center rounded-t-2xl">
-            <img className="w-[70%] transition-transform duration-500 group-hover:scale-110" src={prod.image} alt="producto 1"/>
+    <AnimationIn direction="bottom">
+      <Card
+        hoverable
+        cover={
+          <div className="h-40 bg-gray-100 flex items-center justify-center overflow-hidden rounded-t-lg">
+            <img 
+              src={product.image} 
+              alt={product.title} 
+              className="w-3/4 object-contain transition-transform duration-300 hover:scale-110"
+            />
+          </div>
+        }
+        actions={[
+          <Tooltip title="Editar" key="edit">
+            <Button 
+              type="text" 
+              icon={<EditOutlined className="text-blue-500" />} 
+              onClick={() => onEdit(product)}
+            />
+          </Tooltip>,
+          <Tooltip title="Eliminar" key="delete">
+            <Button 
+              type="text" 
+              icon={<DeleteOutlined className="text-red-500" />} 
+              onClick={() => onDelete(product.id)}
+            />
+          </Tooltip>
+        ]}
+        className="rounded-lg shadow-md hover:shadow-lg transition-shadow"
+      >
+        <div className="p-4">
+          <h3 className="font-bold text-base mb-1">{product.title}</h3>
+          <div className="flex justify-between items-center">
+            <span className="text-green-600 font-semibold">
+              S/{product.price.toFixed(2)}
+            </span>
+            <span className="text-xs text-gray-500">ID: {product.id}</span>
+          </div>
         </div>
+      </Card>
+    </AnimationIn>
+  );
+};
 
-        <div className="p-5 font-bold">
-            <h3 className="text-gray-700">{prod.title}</h3>
-            <p className="text-gray-500">{`S/${Number(prod.price).toFixed(2)}`}</p>
-        </div>
-
-      <ButtonCard onEdit={onEdit} onDelete={()=> onDelete(prod.id)}/>
-      </div>
-    </AnimationIn> 
-    ))}
-    </>
-  )
-}
-
-export default ProductCard
+export default ProductCard;

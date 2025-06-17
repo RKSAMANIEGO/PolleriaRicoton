@@ -11,12 +11,11 @@ const HeaderAdmin = () => {
   const {register,handleSubmit,formState:{errors}} = useForm();
   const [isOpenRegister,setOpenRegister] = useState(false);
   const user="enrike";
-  const {isDark} = useTheme();
   const handleRegister = (data) => console.log(data);
 
   return (
   <>
-    <div className={`flex justify-between items-center h-[10dvh] my-3 mx-7 px-10  ${isDark ? " bg-[#f12828] text-white":"bg-white"}  rounded-2xl`}>
+    <div className={`flex justify-between items-center h-[10dvh] my-3 mx-7 px-10 bg-white rounded-2xl`}>
       <AnimationIn direction='left'><h3 className="text-2xl" style={{fontFamily: "Lobster"}}>Control del Menú</h3></AnimationIn>  
        <span className="flex gap-1"><AnimationIn direction='right'>  <UserOutlined className="cursor-pointer" onClick={()=>setOpenRegister(!isOpenRegister)}/><p className="capitalize flex flex-col text-[9px] leading-[10px]"> <span className="font-bold text-[11px]">{user}</span> Administrador </p> </AnimationIn>  </span>
     </div>
