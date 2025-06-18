@@ -6,14 +6,27 @@ import CategorieCards from "./Components/CategorieCards"
 import { useCustomModal } from "../../../../shared/hooks/modal/CustomModalContext"
 import CustomModal from "../../../../shared/components/modal/CustomModal"
 import CategorieCrud from "./Components/CategorieCrud"
+import { useEffect, useState } from "react"
+import { getCategories } from "../../../../shared/services/CategoryService"
 
-const categories=[
-    {id:1,title:"pollos",image:"https://png.pngtree.com/png-vector/20241107/ourlarge/pngtree-delicious-golden-fried-chicken-in-red-bucket-png-image_14309850.png"},
-    {id:2,title:"combos",image:"https://png.pngtree.com/png-vector/20241107/ourlarge/pngtree-delicious-golden-fried-chicken-in-red-bucket-png-image_14309850.png"},
-    {id:3,title:"sopas",image:"https://png.pngtree.com/png-vector/20241107/ourlarge/pngtree-delicious-golden-fried-chicken-in-red-bucket-png-image_14309850.png"}
-]
 
 const CategoriePage = () => {
+
+  const [categories, setcategories] = useState([]);
+
+  useEffect(() => {
+    
+    const fetchCategories = async () => {
+      
+      const response = await getCategories();
+      setcategories(response);
+
+    }
+
+    fetchCategories();
+  }, [])
+  
+
 
   const {isOpen,onOpen,onClose} =  useCustomModal();
   const onDelete=(id)=>alert(`Categoria con ID ${id} Eliminado`);

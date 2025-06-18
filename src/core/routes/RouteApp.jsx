@@ -20,6 +20,7 @@ const RouteApp = () => {
       <Route path="/hero" element={<Hero />} />
       <Route path="/login" element={<LoginPage />} /> */}
 
+              <Route path='chicken' element={<ChickenPage/>}/>
  
         <Route path='panel' element={<LayoutAdmin/>}>
           <Route index element={<HomePage/>}/>
@@ -28,7 +29,6 @@ const RouteApp = () => {
 
           <Route path='menu' element={<Outlet/>}>
               <Route index element={<ChickenPage/>}/>
-              <Route path='chicken' element={<ChickenPage/>}/>
               <Route path='combos' element={<ComboPage/>}/>
           </Route>
           

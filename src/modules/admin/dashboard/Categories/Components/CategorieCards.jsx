@@ -9,11 +9,11 @@ const CategorieCards = ({categories,onEdit,onDelete}) => {
         <div key={cat.id} className="group flex flex-col justify-between h-[300px] w-[250px] rounded-t-2xl transition-transform duration-500 hover:-translate-y-2 " style={{boxShadow:"5px 5px 2px  #f1ecd7"}}>        
             
             <div className="h-[50%] bg-[#f1f1f1] flex justify-center rounded-t-2xl">
-                <img className="w-[70%] transition-transform duration-500 group-hover:scale-90" src={cat.image} alt="producto 1"/>
+                <img className="w-[70%] transition-transform duration-500 group-hover:scale-90" src={cat.image_url} alt="producto 1"/>
             </div>
 
             <div className="p-5 font-bold">  
-                <h3>{cat.title}</h3> 
+                <h3>{cat.name}</h3> 
             </div>
 
             <ButtonCard onEdit={onEdit} onDelete={()=> onDelete(cat.id)}/>

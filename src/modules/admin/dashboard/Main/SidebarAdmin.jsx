@@ -47,10 +47,10 @@ const SidebarAdmin = ( {categories} ) => {
       icon: <MenuOutlined />,
       label: 'Menú',
       children: categories.map((category) => ({
-        key: `/panel/menu/${category.slug}`,
+        key: `/panel/menu/${category.name}`,
         label: category.name,
         icon: <img
-          src={category.image?.url || 'https://via.placeholder.com/20'} 
+          src={category.image_url || 'https://via.placeholder.com/20'} 
           alt={category.name} 
           className="w-5 h-5 rounded-full"
         />
