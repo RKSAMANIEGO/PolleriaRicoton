@@ -1,0 +1,245 @@
+/* hero.css */
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;700&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #FFF1F2;
+}
+.page-container {
+}
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+.welcome-text {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+}
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+.header-icon {
+  font-size: 1.5rem;
+  color: #333;
+  cursor: pointer;
+}
+.search-wrapper {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border: 1px solid #EAEAEA;
+  border-radius: 12px;
+  padding: 12px 15px;
+}
+.search-icon {
+  font-size: 1.1rem;
+  color: #888;
+}
+.search-input {
+  border: none;
+  outline: none;
+  background: transparent;
+  margin-left: 10px;
+  font-size: 1rem;
+  width: 100%;
+}
+.search-input::placeholder {
+  color: #999;
+}
+.banner-container {
+  /* border: 1px solid #DDD; */
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.logo {
+  width: 100%;
+  top: 20px;
+  left: 40px;
+}
+.hero-welcome {
+  color: #E63946;
+  font-weight: 700;
+  margin: 0;
+}
+.hero-title {
+  font-family: 'Anton', sans-serif;
+  font-size: 3.8rem;
+  line-height: 1.1;
+  margin: 5px 0 15px 0;
+  text-transform: uppercase;
+  color: white;
+}
+.hero-title .highlight {
+  font-size: 5rem;
+}
+.hero-description {
+  font-size: 1rem;
+  max-width: 300px;
+  color: #DDD;
+}
+.hero-right {
+  flex: 1;
+  position: relative;
+  background: radial-gradient(circle, #ff8a8a, #E63946);
+  margin-left: -17%; /* Ajuste fino para el solapamiento */
+}
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  position: absolute;
+  bottom: 0;
+  right: -10%;
+  filter: drop-shadow(0 10px 15px rgba(0,0,0,0.4));
+}
+
+/* --- ESTILOS DEL FOOTER DEL BANNER (REDISEÑADOS) --- */
+.banner-footer {
+  display: flex;
+  color: white;
+  /* Se quita el fondo de aquí para ponerlo en los hijos */
+}
+
+/* Parte blanca izquierda del footer */
+.footer-left-white {
+  background-color: white;
+  color: #333;
+  flex-basis: 58%; /* Ancho base de la sección blanca */
+  padding: 15px 25px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  /* Corte diagonal que coincide con el banner superior */
+  clip-path: polygon(0 0, 100% 0, 90% 100%, 0% 100%);
+}
+
+.location-tag {
+  background-color: #E63946;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 8px 8px 0 0;
+  font-size: 0.9rem;
+  font-weight: 700;
+  position: absolute;
+  top: -29px;
+  left: 25px;
+}
+.location-tag::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #E63946;
+}
+
+.info-text {
+  font-size: 0.9rem;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.info-icon {
+  color: #E63946; /* Color rojo para los iconos de info */
+  font-size: 1.1em;
+}
+
+/* Parte roja derecha del footer */
+.footer-right-red {
+  background-color: #E63946;
+  flex-grow: 1; /* Ocupa el resto del espacio */
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 20px;
+  padding: 15px 25px;
+  /* Margen negativo para solaparse debajo de la parte blanca */
+  margin-left: -10%; 
+  padding-left: 12%; /* Espacio extra para compensar el solapamiento */
+}
+
+.social-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.social-icon {
+  background-color: white;
+  color: #E63946; /* Color rojo para los símbolos sociales */
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 1.1rem;
+}
+
+.call-btn {
+  background-color: #D62828; /* Rojo intenso para el botón */
+  color: white;
+  border: none; /* Se quita el borde blanco */
+  padding: 10px 28px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.call-btn:hover {
+  background-color: #F77F00; /* Color naranja/diferente al pasar el mouse */
+}
+
+
+/* --- TARJETAS DE CATEGORÍAS --- */
+.categories {
+  display: flex;
+  gap: 10px;
+}
+.category-card {
+  min-width: 100px;
+  background-color: white;
+  border-radius: 16px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid #F0F0F0;
+}
+.category-card.active {
+  background-color: #E63946;
+  color: white;
+  border: none;
+}
+.category-icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+.category-name {
+  font-weight: 700;
+  font-size: 1rem;
+  margin: 10px 0 5px 0;
+}
+.category-products {
+  font-size: 0.9rem;
+  color: #777;
+}
+.category-card.active .category-products {
+  color: rgba(255, 255, 255, 0.9);
+}
